@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.beans.*;
 import javax.swing.*;
 import net.miginfocom.swing.*;
 /*
@@ -12,16 +13,19 @@ import net.miginfocom.swing.*;
  * @author Hayk
  */
 public class StoreProductListGUI extends JFrame {
+
+    public StoreProductListGUI() {
+        initComponents();
+        getContentPane().setBackground(new Color(153, 153, 255));
+        pack();
+        StoreProductList.setModel(new DefaultComboBoxModel(Store.productList.toArray()));
+        this.setVisible(true);
+    }
+
     public static void main(String[] args) {
         StoreProductListGUI productList = new StoreProductListGUI();
         productList.pack();
         productList.setVisible(true);
-    }
-    public StoreProductListGUI() {
-        initComponents();
-        pack();
-        StoreProductList.setModel(new DefaultComboBoxModel(Store.productList.toArray()));
-        this.setVisible(true);
     }
 
     private void BackButtonActionPerformed(ActionEvent e) {
@@ -31,62 +35,66 @@ public class StoreProductListGUI extends JFrame {
         this.dispose();
     }
 
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Hayk
+        // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
         label1 = new JLabel();
         StoreProductList = new JList();
         BackButton = new JButton();
 
         //======== this ========
-        setBackground(Color.magenta);
+        setBackground(new Color(153, 153, 255));
         var contentPane = getContentPane();
-        contentPane.setLayout(new MigLayout(
-            "hidemode 3",
-            // columns
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]",
-            // rows
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]"));
 
         //---- label1 ----
         label1.setText("Store Product List");
         label1.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 14));
         label1.setForeground(Color.yellow);
-        contentPane.add(label1, "cell 3 0");
-        contentPane.add(StoreProductList, "cell 0 2 2 3");
+
+        //---- StoreProductList ----
+        StoreProductList.setSelectionBackground(new Color(153, 153, 255));
+        StoreProductList.setBackground(Color.yellow);
 
         //---- BackButton ----
         BackButton.setText("Back");
-        BackButton.setForeground(Color.yellow);
-        BackButton.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 14));
+        BackButton.setForeground(Color.black);
+        BackButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        BackButton.setBackground(Color.yellow);
         BackButton.addActionListener(e -> BackButtonActionPerformed(e));
-        contentPane.add(BackButton, "cell 0 10");
+
+        GroupLayout contentPaneLayout = new GroupLayout(contentPane);
+        contentPane.setLayout(contentPaneLayout);
+        contentPaneLayout.setHorizontalGroup(
+            contentPaneLayout.createParallelGroup()
+                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                    .addGap(0, 215, Short.MAX_VALUE)
+                    .addComponent(BackButton, GroupLayout.PREFERRED_SIZE, 79, GroupLayout.PREFERRED_SIZE)
+                    .addGap(14, 14, 14))
+                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                    .addContainerGap(102, Short.MAX_VALUE)
+                    .addComponent(label1, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE)
+                    .addGap(69, 69, 69))
+                .addComponent(StoreProductList, GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+        );
+        contentPaneLayout.setVerticalGroup(
+            contentPaneLayout.createParallelGroup()
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(label1, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
+                    .addGap(27, 27, 27)
+                    .addComponent(StoreProductList, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                    .addComponent(BackButton)
+                    .addGap(15, 15, 15))
+        );
         pack();
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Hayk
+    // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
     private JLabel label1;
     private JList StoreProductList;
     private JButton BackButton;

@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9.1" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -9,57 +9,6 @@ new FormModel {
 				name: "dialogPane"
 				"border": new javax.swing.border.EmptyBorder( 12, 12, 12, 12 )
 				"background": &Color0 new java.awt.Color( 153, 153, 255, 255 )
-				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {space :::p, par l:::p {seq l {space :p:276:p, comp textField5:::p:113:p}, seq l {par t {comp QuantityLabel::l:p::p, seq {comp ProductNameLabel:::p::p, space :p:16:p}}, space :p:12:p, par l {comp QuantityTextArea:::p:60:p, comp NewProductComboBox:::p::p}, space :p:56:p, par l:::p {seq {comp ProductSellPriceLabel:::p::p, space :::p, comp SellPriceTextArea:::p:60:p}, seq {comp ProductBuyPriceLabel:::p::p, space :::p, comp BuyPriceTextArea:::::x}}}}}}"
-					"$verticalGroup": "par l {seq l {comp textField5:::p:0:p, par l {seq {space :::x, par b {comp ProductNameLabel::b:p::p, comp ProductBuyPriceLabel::b:p::p, comp BuyPriceTextArea::b:p::p}, space :p:25:p, par b {comp QuantityLabel::b:p::p, comp QuantityTextArea::b:p::p, comp ProductSellPriceLabel::b:p::p, comp SellPriceTextArea::b:p::p}, space :p:26:p}, seq l {space :::p, comp NewProductComboBox:::p::p, space :::x}}}}"
-				} ) {
-					name: "contentPanel"
-					"background": #Color0
-					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "ProductNameLabel"
-						"text": "Name"
-						"foreground": sfield java.awt.Color yellow
-						"background": new java.awt.Color( 255, 255, 255, 255 )
-						"font": &Font0 new java.awt.Font( "Berlin Sans FB Demi", 1, 12 )
-						addEvent( new FormEvent( "java.beans.PropertyChangeListener", "propertyChange", "label2PropertyChange", true ) )
-					} )
-					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "QuantityLabel"
-						"text": "Quantity"
-						"foreground": sfield java.awt.Color yellow
-						"font": #Font0
-					} )
-					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "ProductSellPriceLabel"
-						"text": "Sell Price"
-						"foreground": sfield java.awt.Color yellow
-						"font": #Font0
-					} )
-					add( new FormComponent( "javax.swing.JTextField" ) {
-						name: "textField5"
-					} )
-					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "ProductBuyPriceLabel"
-						"text": "Buy Price"
-						"foreground": sfield java.awt.Color yellow
-						"font": #Font0
-					} )
-					add( new FormComponent( "javax.swing.JTextArea" ) {
-						name: "QuantityTextArea"
-					} )
-					add( new FormComponent( "javax.swing.JTextArea" ) {
-						name: "SellPriceTextArea"
-					} )
-					add( new FormComponent( "javax.swing.JTextArea" ) {
-						name: "BuyPriceTextArea"
-					} )
-					add( new FormComponent( "javax.swing.JComboBox" ) {
-						name: "NewProductComboBox"
-						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "NewProductComboBoxActionPerformed", true ) )
-					} )
-				}, new FormLayoutConstraints( class java.lang.String ) {
-					"value": "Center"
-				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 					"$columnSpecs": "0:1.0, 80"
 					"$rowSpecs": "0, 0, 0, 0"
@@ -69,19 +18,70 @@ new FormModel {
 					name: "buttonBar"
 					"border": new javax.swing.border.EmptyBorder( 12, 0, 0, 0 )
 					"background": #Color0
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {seq {space :::p, par l:::p {seq l {space :p:276:p, comp textField5:::p:113:p}, seq l {par t {comp QuantityLabel::l:p::p, seq {comp ProductNameLabel:::p::p, space :p:16:p}}, space :p:12:p, par l {comp QuantityTextArea:::p:60:p, comp NewProductComboBox:::p::p}, space :p:56:p, par l:::p {seq {comp ProductSellPriceLabel:::p::p, space :::p, comp SellPriceTextArea:::p:60:p}, seq {comp ProductBuyPriceLabel:::p::p, space :::p, comp BuyPriceTextArea:::::x}}}}}}"
+						"$verticalGroup": "par l {seq l {comp textField5:::p:0:p, par l {seq {space :::x, par b {comp ProductNameLabel::b:p::p, comp BuyPriceTextArea::b:p::p, comp ProductBuyPriceLabel::b:p::p}, space :p:25:p, par b {comp QuantityLabel::b:p::p, comp QuantityTextArea::b:p::p, comp ProductSellPriceLabel::b:p::p, comp SellPriceTextArea::b:p::p}, space :p:26:p}, seq l {space :::p, comp NewProductComboBox:::p::p, space :::x}}}}"
+					} ) {
+						name: "contentPanel"
+						"background": #Color0
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "ProductNameLabel"
+							"text": "Name"
+							"foreground": sfield java.awt.Color yellow
+							"background": new java.awt.Color( 255, 255, 255, 255 )
+							"font": &Font0 new java.awt.Font( "Berlin Sans FB Demi", 1, 12 )
+							addEvent( new FormEvent( "java.beans.PropertyChangeListener", "propertyChange", "label2PropertyChange", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "QuantityLabel"
+							"text": "Quantity"
+							"foreground": sfield java.awt.Color yellow
+							"font": #Font0
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "ProductSellPriceLabel"
+							"text": "Sell Price"
+							"foreground": sfield java.awt.Color yellow
+							"font": #Font0
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "textField5"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "ProductBuyPriceLabel"
+							"text": "Buy Price"
+							"foreground": sfield java.awt.Color yellow
+							"font": #Font0
+						} )
+						add( new FormComponent( "javax.swing.JTextArea" ) {
+							name: "QuantityTextArea"
+						} )
+						add( new FormComponent( "javax.swing.JTextArea" ) {
+							name: "SellPriceTextArea"
+						} )
+						add( new FormComponent( "javax.swing.JTextArea" ) {
+							name: "BuyPriceTextArea"
+						} )
+						add( new FormComponent( "javax.swing.JComboBox" ) {
+							name: "NewProductComboBox"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "NewProductComboBoxActionPerformed", true ) )
+						} )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 1
+					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "okButton"
 						"text": "OK"
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "okButtonActionPerformed", true ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-						"gridy": 1
+						"gridy": 3
 					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "Cancel"
 						"text": "Cancel"
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "CancelActionPerformed", true ) )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-						"gridy": 1
+						"gridy": 3
 						"gridx": 1
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {

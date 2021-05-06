@@ -8,8 +8,8 @@ new FormModel {
 			"JavaCodeGenerator.memberVariableThis": true
 		}
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {par l {seq {space :p:74:p, comp label1:::p::p, space s:::p}, seq t {space :::p, comp label2:::p::p, space :p:28:p}}, par l {comp storeButton::l:p:161:p, comp stockButton::l:p:161:p}, space ::95:x}}"
-			"$verticalGroup": "par l {seq {space :p:67:p, par l {comp storeButton:::p:46:p, comp label2:::p::p}, space :p:51:p, par l {comp stockButton:::p:47:p, comp label1:::p::p}, space ::65:x}}"
+			"$horizontalGroup": "par l {seq {space ::75:x, par t {seq {comp label2:::p::p, space s:::p, comp stockButton:::p:161:p}, seq {comp label3:::p::p, space s:::p, comp storeButton:::p:161:p}}, space :p:94:p}}"
+			"$verticalGroup": "par l {seq t {space ::56:x, par t {comp storeButton:::p:46:p, comp label3:::p:37:p}, space :p:33:p, par l {comp stockButton:::p:47:p, comp label2:::p::p}, space :p:98:p}}"
 		} ) {
 			name: "this"
 			"background": sfield java.awt.Color pink
@@ -26,11 +26,11 @@ new FormModel {
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "stockButtonActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label1"
+				name: "label2"
 				"icon": new com.jformdesigner.model.SwingIcon( 0, "/icons/037_boxes_warehouse_storage_delivery-512.png" )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label2"
+				name: "label3"
 				"icon": new com.jformdesigner.model.SwingIcon( 0, "/icons/shop-512.png" )
 			} )
 		}, new FormLayoutConstraints( null ) {

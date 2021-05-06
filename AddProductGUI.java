@@ -45,8 +45,6 @@ public class AddProductGUI extends JFrame {
         dispose();
     }
 
-
-
     private void CancelActionPerformed(ActionEvent e) {
         StockGUI stock = new StockGUI();
         stock.pack();

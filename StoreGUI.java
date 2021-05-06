@@ -53,22 +53,31 @@ public class StoreGUI extends JFrame {
     }
 
     private void button1ActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        RequestProductGUI request = new RequestProductGUI();
+        request.pack();
+        request.setVisible(true);
+        dispose();
     }
 
     private void button2ActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        SellProductGUI sellProduct = new SellProductGUI();
+        sellProduct.pack();
+        sellProduct.setVisible(true);
+        dispose();
     }
 
     
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Hayk
+        // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
         SellProductButton = new JButton();
         RequestProductButton = new JButton();
         Cancel = new JButton();
         ProductList = new JButton();
+        label2 = new JLabel();
+        label3 = new JLabel();
+        label4 = new JLabel();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -77,12 +86,12 @@ public class StoreGUI extends JFrame {
         //---- SellProductButton ----
         SellProductButton.setText("Sell a product");
         SellProductButton.setBackground(Color.yellow);
-        SellProductButton.addActionListener(e -> SellProductActionPerformed(e));
+        SellProductButton.addActionListener(e -> button1ActionPerformed(e));
 
         //---- RequestProductButton ----
         RequestProductButton.setText("Request a product");
         RequestProductButton.setBackground(Color.yellow);
-        RequestProductButton.addActionListener(e -> RequestProductActionPerformed(e));
+        RequestProductButton.addActionListener(e -> button2ActionPerformed(e));
 
         //---- Cancel ----
         Cancel.setText("Back");
@@ -94,34 +103,55 @@ public class StoreGUI extends JFrame {
         ProductList.setBackground(Color.yellow);
         ProductList.addActionListener(e -> ProductListActionPerformed(e));
 
+        //---- label2 ----
+        label2.setIcon(new ImageIcon(getClass().getResource("/icons/shopping__business__cart__add__more_-512.png")));
+
+        //---- label3 ----
+        label3.setIcon(new ImageIcon(getClass().getResource("/icons/shopping__business__document__pencil_-512.png")));
+
+        //---- label4 ----
+        label4.setIcon(new ImageIcon(getClass().getResource("/icons/shopping__business__coins__dollar_-512.png")));
+
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(25, 25, 25)
-                    .addComponent(Cancel)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                    .addContainerGap(63, Short.MAX_VALUE)
                     .addGroup(contentPaneLayout.createParallelGroup()
-                        .addComponent(SellProductButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(RequestProductButton, GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                        .addComponent(ProductList, GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
-                    .addGap(135, 135, 135))
+                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                .addComponent(label4)
+                                .addComponent(label2)
+                                .addComponent(label3))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                .addComponent(SellProductButton, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                                .addComponent(RequestProductButton, GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                                .addComponent(ProductList, GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
+                            .addGap(135, 135, 135))
+                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                            .addComponent(Cancel)
+                            .addContainerGap())))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(149, 223, Short.MAX_VALUE)
+                    .addGap(26, 26, 26)
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                        .addComponent(SellProductButton, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(label4))
+                    .addGap(18, 18, 18)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addComponent(label2)
+                        .addComponent(RequestProductButton, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
+                    .addGap(30, 30, 30)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addComponent(ProductList, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(label3))
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                     .addComponent(Cancel)
-                    .addGap(15, 15, 15))
-                .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(20, 20, 20)
-                    .addComponent(SellProductButton, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(RequestProductButton, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(ProductList, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(76, Short.MAX_VALUE))
+                    .addContainerGap())
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -129,10 +159,13 @@ public class StoreGUI extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Hayk
+    // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
     private JButton SellProductButton;
     private JButton RequestProductButton;
     private JButton Cancel;
     private JButton ProductList;
+    private JLabel label2;
+    private JLabel label3;
+    private JLabel label4;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

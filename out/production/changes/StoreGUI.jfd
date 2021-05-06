@@ -1,11 +1,11 @@
-JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9.1" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:25:p, comp Cancel:::p::p, space ::10:x, par l {comp SellProductButton:::::x, comp RequestProductButton::::150:x, comp ProductList::::150:x}, space :p:135:p}}"
-			"$verticalGroup": "par l {seq l {space :149:223:x, comp Cancel:::p::p, space :p:15:p}, seq l {space :p:20:p, comp SellProductButton:::p:44:p, space s:::p, comp RequestProductButton:::p:46:p, space s:::p, comp ProductList:::p:46:p, space ::76:x}}"
+			"$horizontalGroup": "par l {seq {space ::63:x, par l {seq t {par t {comp label4:::p::p, comp label2::t:p::p, comp label3::t:p::p}, space u:::p, par l:::p {comp SellProductButton::t::138:x, comp RequestProductButton::l::138:x, comp ProductList::l::138:x}, space :p:135:p}, seq t {comp Cancel:::p::p, space :::p}}}}"
+			"$verticalGroup": "par l {seq l {space :p:26:p, par t {comp SellProductButton:::p:44:p, comp label4:::p::p}, space s:::p, par l {comp label2::l:p::p, comp RequestProductButton::l:p:46:p}, space :p:30:p, par l {comp ProductList:::p:46:p, comp label3:::p::p}, space ::8:x, comp Cancel:::p::p, space :::p}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 2
@@ -33,8 +33,20 @@ new FormModel {
 				"background": sfield java.awt.Color yellow
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ProductListActionPerformed", true ) )
 			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/icons/shopping__business__cart__add__more_-512.png" )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/icons/shopping__business__document__pencil_-512.png" )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/icons/shopping__business__coins__dollar_-512.png" )
+			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 105, 10 )
+			"location": new java.awt.Point( 105, 15 )
 			"size": new java.awt.Dimension( 400, 300 )
 		} )
 	}

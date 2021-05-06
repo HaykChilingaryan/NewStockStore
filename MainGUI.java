@@ -47,8 +47,8 @@ public class MainGUI extends JFrame {
         // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
         this.storeButton = new JButton();
         this.stockButton = new JButton();
-        this.label1 = new JLabel();
         this.label2 = new JLabel();
+        this.label3 = new JLabel();
 
         //======== this ========
         setBackground(Color.pink);
@@ -67,45 +67,43 @@ public class MainGUI extends JFrame {
         this.stockButton.setName("stockButton");
         this.stockButton.addActionListener(e -> stockButtonActionPerformed(e));
 
-        //---- label1 ----
-        //this.label1.setIcon(new ImageIcon(getClass().getResource("/icons/037_boxes_warehouse_storage_delivery-512.png")));
-        //this.label1.setName("label1");
-
         //---- label2 ----
-        //this.label2.setIcon(new ImageIcon(getClass().getResource("/icons/shop-512.png")));
-        //this.label2.setName("label2");
+        this.label2.setIcon(new ImageIcon(getClass().getResource("/icons/037_boxes_warehouse_storage_delivery-512.png")));
+        this.label2.setName("label2");
+
+        //---- label3 ----
+        this.label3.setIcon(new ImageIcon(getClass().getResource("/icons/shop-512.png")));
+        this.label3.setName("label3");
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGroup(contentPaneLayout.createParallelGroup()
+                    .addContainerGap(75, Short.MAX_VALUE)
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                         .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addGap(74, 74, 74)
-                            .addComponent(this.label1)
-                            .addGap(18, 18, 18))
-                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                            .addContainerGap()
                             .addComponent(this.label2)
-                            .addGap(28, 28, 28)))
-                    .addGroup(contentPaneLayout.createParallelGroup()
-                        .addComponent(this.storeButton, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(this.stockButton, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(95, Short.MAX_VALUE))
+                            .addGap(18, 18, 18)
+                            .addComponent(this.stockButton, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addComponent(this.label3)
+                            .addGap(18, 18, 18)
+                            .addComponent(this.storeButton, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)))
+                    .addGap(94, 94, 94))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
-                .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(67, 67, 67)
-                    .addGroup(contentPaneLayout.createParallelGroup()
+                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                    .addContainerGap(56, Short.MAX_VALUE)
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                         .addComponent(this.storeButton, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(this.label2))
-                    .addGap(51, 51, 51)
+                        .addComponent(this.label3, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
+                    .addGap(33, 33, 33)
                     .addGroup(contentPaneLayout.createParallelGroup()
                         .addComponent(this.stockButton, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(this.label1))
-                    .addContainerGap(65, Short.MAX_VALUE))
+                        .addComponent(this.label2))
+                    .addGap(98, 98, 98))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -116,7 +114,7 @@ public class MainGUI extends JFrame {
     // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
     private JButton storeButton;
     private JButton stockButton;
-    private JLabel label1;
     private JLabel label2;
+    private JLabel label3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
