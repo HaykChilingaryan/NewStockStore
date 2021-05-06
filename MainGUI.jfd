@@ -1,0 +1,41 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9.1" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		"$setComponentNames": true
+		auxiliary() {
+			"JavaCodeGenerator.memberVariableThis": true
+		}
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {par l {seq {space :p:74:p, comp label1:::p::p, space s:::p}, seq t {space :::p, comp label2:::p::p, space :p:28:p}}, par l {comp storeButton::l:p:161:p, comp stockButton::l:p:161:p}, space ::95:x}}"
+			"$verticalGroup": "par l {seq {space :p:67:p, par l {comp storeButton:::p:46:p, comp label2:::p::p}, space :p:51:p, par l {comp stockButton:::p:47:p, comp label1:::p::p}, space ::65:x}}"
+		} ) {
+			name: "this"
+			"background": sfield java.awt.Color pink
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "storeButton"
+				"text": "Store"
+				"background": sfield java.awt.Color yellow
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "storeButtonActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "stockButton"
+				"text": "Stock"
+				"background": sfield java.awt.Color yellow
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "stockButtonActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/icons/037_boxes_warehouse_storage_delivery-512.png" )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/icons/shop-512.png" )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 125, 30 )
+			"size": new java.awt.Dimension( 400, 315 )
+		} )
+	}
+}

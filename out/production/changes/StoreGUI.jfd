@@ -1,0 +1,41 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:25:p, comp Cancel:::p::p, space ::10:x, par l {comp SellProductButton:::::x, comp RequestProductButton::::150:x, comp ProductList::::150:x}, space :p:135:p}}"
+			"$verticalGroup": "par l {seq l {space :149:223:x, comp Cancel:::p::p, space :p:15:p}, seq l {space :p:20:p, comp SellProductButton:::p:44:p, space s:::p, comp RequestProductButton:::p:46:p, space s:::p, comp ProductList:::p:46:p, space ::76:x}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 2
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "SellProductButton"
+				"text": "Sell a product"
+				"background": sfield java.awt.Color yellow
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "RequestProductButton"
+				"text": "Request a product"
+				"background": sfield java.awt.Color yellow
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "Cancel"
+				"text": "Back"
+				"background": sfield java.awt.Color yellow
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "CancelActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "ProductList"
+				"text": "Product List"
+				"background": sfield java.awt.Color yellow
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ProductListActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 105, 10 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}

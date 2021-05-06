@@ -1,0 +1,108 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "dialogPane"
+				"border": new javax.swing.border.EmptyBorder( 12, 12, 12, 12 )
+				"background": &Color0 new java.awt.Color( 153, 153, 255, 255 )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq {par l {seq {space :::p, comp label3:::p::p}, seq l {par t:::p {seq l {space :p:14:p, comp label1:::p::p, space s:::p, comp nameBox:::p::p, space :::x, comp SellPrice:::p::p}, seq l {space :::p, comp label2:::p::p, space u:::p, comp textArea2:::p:78:p, space :p:59:p, comp BuyPrice:::p::p}}, space s:::p, par l {comp textArea3:::p:78:p, comp textArea4:::p:78:p}}}, space ::10:x}}"
+					"$verticalGroup": "par l {seq l {comp label3:::p::p, space s:::p, par b {comp textArea4::b:p::p, comp SellPrice::b:p::p, comp label1::b:p::p, comp nameBox::b:p::p}, space ::49:x, par b {comp label2::b:p::p, comp textArea2::b:p::p, comp BuyPrice::b:p::p, comp textArea3::b:p::p}, space :p:72:p}}"
+				} ) {
+					name: "contentPanel"
+					"background": #Color0
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label1"
+						"text": "Name"
+						"foreground": sfield java.awt.Color yellow
+						"font": new java.awt.Font( "Berlin Sans FB Demi", 1, 14 )
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label2"
+						"text": "Quantity"
+						"foreground": sfield java.awt.Color yellow
+						"font": new java.awt.Font( "Berlin Sans FB Demi", 1, 14 )
+					} )
+					add( new FormComponent( "javax.swing.JTextArea" ) {
+						name: "textArea2"
+						"foreground": sfield java.awt.Color black
+						"caretColor": &Color1 new java.awt.Color( 0, 0, 0, 255 )
+						"selectedTextColor": &Color2 new java.awt.Color( 0, 0, 0, 255 )
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label3"
+						"text": "Please, enter the name and the quantity of the product"
+						"foreground": sfield java.awt.Color yellow
+						"font": new java.awt.Font( "Berlin Sans FB Demi", 1, 14 )
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "SellPrice"
+						"text": "Sell Price"
+						"font": &Font0 new java.awt.Font( "Berlin Sans FB Demi", 1, 14 )
+						"foreground": sfield java.awt.Color yellow
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "BuyPrice"
+						"text": "Buy Price"
+						"font": #Font0
+						"foreground": sfield java.awt.Color yellow
+					} )
+					add( new FormComponent( "javax.swing.JTextArea" ) {
+						name: "textArea3"
+						"foreground": sfield java.awt.Color black
+						"caretColor": #Color1
+						"selectedTextColor": #Color2
+					} )
+					add( new FormComponent( "javax.swing.JTextArea" ) {
+						name: "textArea4"
+						"foreground": sfield java.awt.Color black
+						"caretColor": #Color1
+						"selectedTextColor": #Color2
+					} )
+					add( new FormComponent( "javax.swing.JComboBox" ) {
+						name: "nameBox"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "nameBoxActionPerformed", true ) )
+						addEvent( new FormEvent( "java.awt.event.ItemListener", "itemStateChanged", "nameBoxItemStateChanged", true ) )
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+					"$columnSpecs": "0:1.0, 80"
+					"$rowSpecs": "0"
+					"$hGap": 5
+					"$vGap": 5
+				} ) {
+					name: "buttonBar"
+					"border": new javax.swing.border.EmptyBorder( 12, 0, 0, 0 )
+					"background": new java.awt.Color( 153, 153, 255, 255 )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "okButton"
+						"text": "OK"
+						"background": sfield java.awt.Color yellow
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "okButtonActionPerformed", true ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "CancelButton"
+						"text": "Cancel"
+						"background": sfield java.awt.Color yellow
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "CancelButtonActionPerformed", true ) )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 1
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "South"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}

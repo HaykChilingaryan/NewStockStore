@@ -1,0 +1,40 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill][fill][fill][fill][fill][fill][fill][fill][fill][fill]"
+			"$rowConstraints": "[][][][][][][][][][][]"
+		} ) {
+			name: "this"
+			"background": sfield java.awt.Color magenta
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Store Product List"
+				"font": new java.awt.Font( "Berlin Sans FB Demi", 1, 14 )
+				"foreground": sfield java.awt.Color yellow
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 3 0"
+			} )
+			add( new FormComponent( "javax.swing.JList" ) {
+				name: "StoreProductList"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2 2 3"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "BackButton"
+				"text": "Back"
+				"foreground": new java.awt.Color( 255, 255, 0, 255 )
+				"font": new java.awt.Font( "Berlin Sans FB Demi", 1, 14 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "BackButtonActionPerformed", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 10"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}
