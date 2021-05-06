@@ -3,23 +3,18 @@ import java.util.ArrayList;
 public final class Store implements Cloneable {
     private static String storeName;
     private static String storeLicenseNumber;
-    private static Stock storeStock;
     private static double storeBudget;
-    public static ArrayList<StoreProduct> productList = new ArrayList<StoreProduct>(0);
+    public static ArrayList<StoreProduct> productList = new ArrayList<>(0);
 
 
-    public Store(String storeName, String storeLicenseNumber,Stock storeStock,double storeBudget){
+    public Store(String storeName, String storeLicenseNumber,double storeBudget){
         Store.storeName = storeName;
         Store.storeLicenseNumber = storeLicenseNumber;
-        this.storeStock = storeStock;
         Store.storeBudget = storeBudget;
 
     }
 
-    //Accessors
-    public Stock getStoreStock(){
-        return this.storeStock;
-    }
+
 
 
     //Mutators
@@ -79,11 +74,11 @@ public final class Store implements Cloneable {
         }
     }
 
-    public static void RequestProductFromStock(ArrayList<StoreProduct> newStoreProducts) throws ProductOutOfCapacityException, ProductOutOfQuantityException, InvalidStoreProductAction {
+    /*public static void RequestProductFromStock(ArrayList<StoreProduct> newStoreProducts) throws ProductOutOfQuantityException, InvalidStoreProductAction {
         for (StoreProduct stockProduct:newStoreProducts) {
             RequestProductFromStock(stockProduct);
         }
-    }
+    }*/
 
     public static void Sell(StoreProduct soldProduct) throws ProductOutOfQuantityException, InvalidStoreProductAction {
         boolean foundInStore = false;
@@ -115,11 +110,11 @@ public final class Store implements Cloneable {
         }
     }
 
-    public static void Sell(ArrayList<StoreProduct> soldProducts) throws ProductOutOfQuantityException, ProductOutOfCapacityException, InvalidStoreProductAction {
+    /*public static void Sell(ArrayList<StoreProduct> soldProducts) throws ProductOutOfQuantityException, InvalidStoreProductAction {
         for(StoreProduct soldProduct : soldProducts){
             Sell(soldProduct);
         }
-    }
+    }*/
 
     public static void removeFromBudget(double budgetRemoval){
         setStoreBudget(storeBudget-budgetRemoval);
@@ -135,10 +130,7 @@ public final class Store implements Cloneable {
         if(this == o){
             return true;
         }
-        if(o instanceof Store){
-            return true;
-        }
-        return false;
+        return o instanceof Store;
     }
 
     @Override
