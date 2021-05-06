@@ -28,7 +28,7 @@ public final class Store implements Cloneable {
     }
 
 
-    public static void RequestProductFromStock(StoreProduct newStoreProduct) throws  ProductOutOfQuantityException, InvalidStoreProductAction {
+    public static void RequestProductFromStock(StoreProduct newStoreProduct) throws  ProductNotFoundInStockException,ProductNotFoundInStoreException,ProductOutOfQuantityException, InvalidStoreProductAction {
         boolean foundInStock = false;
         boolean foundInStockQuantity = false;
         StoreProduct inStockProduct = null;
@@ -45,12 +45,10 @@ public final class Store implements Cloneable {
             }
         }
         if(!foundInStock) {
-            Stock.BuyNewProduct(newStoreProduct);
-            RequestProductFromStock(newStoreProduct);
+            throw new ProductNotFoundInStockException("Product " + newStoreProduct.getStoreProduct().getProductName() + " is not in the stock");
         }
         else if(!foundInStockQuantity){
-            Stock.BuyExistingProduct(newStoreProduct);
-            RequestProductFromStock(newStoreProduct);
+            throw new ProductOutOfQuantityException("There is no much quantity of product " + newStoreProduct.getStoreProduct().getProductName() + "in stock");
         }
         else {
             boolean foundInStore = false;
@@ -64,8 +62,8 @@ public final class Store implements Cloneable {
                 }
             }
             if (!foundInStore) {
-                addProductInStore(newStoreProduct);
-                RequestProductFromStock(newStoreProduct);
+                throw new ProductNotFoundInStoreException("Product " + newStoreProduct.getStoreProduct().getProductName() + " is not in the store");
+
             }
             else{
                 inStoreProduct.addQuantity(newStoreProduct);
@@ -74,13 +72,9 @@ public final class Store implements Cloneable {
         }
     }
 
-    /*public static void RequestProductFromStock(ArrayList<StoreProduct> newStoreProducts) throws ProductOutOfQuantityException, InvalidStoreProductAction {
-        for (StoreProduct stockProduct:newStoreProducts) {
-            RequestProductFromStock(stockProduct);
-        }
-    }*/
 
-    public static void Sell(StoreProduct soldProduct) throws ProductOutOfQuantityException, InvalidStoreProductAction {
+
+    public static void Sell(StoreProduct soldProduct) throws ProductOutOfQuantityException, InvalidStoreProductAction, ProductNotFoundInStoreException, ProductNotFoundInStockException {
         boolean foundInStore = false;
         boolean foundInStoreQuantity = false;
         StoreProduct inStoreProduct = null;
@@ -97,8 +91,7 @@ public final class Store implements Cloneable {
             }
         }
         if(!foundInStore){
-            RequestProductFromStock(soldProduct);
-            Sell(soldProduct);
+           throw new ProductNotFoundInStoreException("Product " + soldProduct.getStoreProduct().getProductName() + " is not in the store");
         }
         else if(!foundInStoreQuantity){
             throw new ProductOutOfQuantityException("There is no much quantity of " + soldProduct.getStoreProduct().getProductName() + " in the store");
@@ -106,15 +99,10 @@ public final class Store implements Cloneable {
         else{
             inStoreProduct.removeQuantity(soldProduct);
             addToBudget(soldProduct.getStoreProductQuantity()*soldProduct.getStoreProductSellPrice());
-            RequestProductFromStock(soldProduct);
+
         }
     }
 
-    /*public static void Sell(ArrayList<StoreProduct> soldProducts) throws ProductOutOfQuantityException, InvalidStoreProductAction {
-        for(StoreProduct soldProduct : soldProducts){
-            Sell(soldProduct);
-        }
-    }*/
 
     public static void removeFromBudget(double budgetRemoval){
         setStoreBudget(storeBudget-budgetRemoval);

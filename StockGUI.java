@@ -42,7 +42,7 @@ public class StockGUI extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
+        // Generated using JFormDesigner Evaluation license - Hayk
         BuyProductButton = new JButton();
         ProductListButton = new JButton();
         CancelButton = new JButton();
@@ -115,7 +115,7 @@ public class StockGUI extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
+    // Generated using JFormDesigner Evaluation license - Hayk
     private JButton BuyProductButton;
     private JButton ProductListButton;
     private JButton CancelButton;

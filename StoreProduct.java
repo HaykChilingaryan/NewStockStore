@@ -51,15 +51,15 @@ public class StoreProduct {
             this.storeProductBuyPrice = buyPrice;
         }
         if(sellPrice > 0){
-            this.storeProductBuyPrice = sellPrice;
+            this.storeProductSellPrice = sellPrice;
         }
          if(quantity >= 0 ){
              this.storeProductQuantity = quantity;
          }
     }
  
-    public void addQuantity(StoreProduct product){
-        this.storeProductQuantity+=product.storeProductQuantity;
+    public void addQuantity(StoreProduct product) throws InvalidStoreProductAction {
+        this.setStoreProductQuantity(this.getStoreProductQuantity()+ product.getStoreProductQuantity());
     }
     public void removeQuantity(StoreProduct product){
         this.storeProductQuantity-=product.storeProductQuantity;

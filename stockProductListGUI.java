@@ -24,6 +24,7 @@ public class stockProductListGUI extends JFrame {
     public stockProductListGUI() {
         initComponents();
         pack();
+        StoreProductList.setModel(new DefaultComboBoxModel(Stock.stockProductList.toArray()));
         this.setVisible(true);
     }
 

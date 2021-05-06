@@ -39,8 +39,19 @@ public class SellProductGUI extends JFrame {
         Product product = (Product)nameBox.getSelectedItem();
         return new StoreProduct(product,quantity,buyPrice,sellPrice);
     }
-    private void okButtonActionPerformed(ActionEvent e) throws ProductOutOfQuantityException, InvalidStoreProductAction {
-        Store.Sell(getStoreProductFromInput());
+    private void okButtonActionPerformed(ActionEvent e) throws ProductOutOfQuantityException, InvalidStoreProductAction, ProductNotFoundInStoreException, ProductNotFoundInStockException {
+        try{
+            Store.Sell(getStoreProductFromInput());
+        }
+        catch(ProductNotFoundInStockException ex){
+
+        }
+        catch(ProductOutOfQuantityException ex){
+
+        }
+        catch (ProductNotFoundInStoreException ex){
+
+        }
         StoreGUI store = new StoreGUI();
         store.pack();
         store.setVisible(true);
@@ -203,7 +214,7 @@ public class SellProductGUI extends JFrame {
                 okButton.addActionListener(e -> {
                     try {
                         okButtonActionPerformed(e);
-                    } catch (ProductOutOfQuantityException | InvalidStoreProductAction exception) {
+                    } catch (ProductOutOfQuantityException | InvalidStoreProductAction | ProductNotFoundInStoreException | ProductNotFoundInStockException exception) {
                         exception.printStackTrace();
                     }
                 });

@@ -35,17 +35,27 @@ public class RequestProductGUI extends JFrame {
         Product product = (Product)ProductComboBox.getSelectedItem();
         return new StoreProduct(product,quantity,buyPrice,sellPrice);
     }
-    private void okButtonActionPerformed(ActionEvent e) throws ProductOutOfQuantityException, InvalidStoreProductAction {
-        Store.Sell(getStoreProductFromInput());
-        StoreGUI store = new StoreGUI();
-        store.pack();
-        store.setVisible(true);
-        this.dispose();
+    private void okButtonActionPerformed(ActionEvent e) throws ProductOutOfQuantityException, InvalidStoreProductAction, ProductNotFoundInStoreException, ProductNotFoundInStockException {
+        try{
+            Store.RequestProductFromStock(getStoreProductFromInput());
+            StoreGUI store = new StoreGUI();
+            store.pack();
+            store.setVisible(true);
+            this.dispose();
+        }
+        catch(ProductOutOfQuantityException ex){
+
+        }
+        catch(ProductNotFoundInStockException ex){
+
+        }
+        catch (ProductNotFoundInStoreException ex){
+
+        }
+
     }
 
-    private void textArea1CaretUpdate(CaretEvent e) {
-        // TODO add your code here
-    }
+
 
     private void button1ActionPerformed(ActionEvent e) {
         StoreGUI store = new StoreGUI();
@@ -186,7 +196,7 @@ public class RequestProductGUI extends JFrame {
                 okButton.addActionListener(e -> {
                     try {
                         okButtonActionPerformed(e);
-                    } catch (ProductOutOfQuantityException | InvalidStoreProductAction exception) {
+                    } catch (ProductOutOfQuantityException | InvalidStoreProductAction | ProductNotFoundInStoreException | ProductNotFoundInStockException exception) {
                         exception.printStackTrace();
                     }
 

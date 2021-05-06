@@ -52,19 +52,7 @@ public class StoreGUI extends JFrame {
         dispose();
     }
 
-    private void button1ActionPerformed(ActionEvent e) {
-        RequestProductGUI request = new RequestProductGUI();
-        request.pack();
-        request.setVisible(true);
-        dispose();
-    }
 
-    private void button2ActionPerformed(ActionEvent e) {
-        SellProductGUI sellProduct = new SellProductGUI();
-        sellProduct.pack();
-        sellProduct.setVisible(true);
-        dispose();
-    }
 
     
 
@@ -86,12 +74,12 @@ public class StoreGUI extends JFrame {
         //---- SellProductButton ----
         SellProductButton.setText("Sell a product");
         SellProductButton.setBackground(Color.yellow);
-        SellProductButton.addActionListener(e -> button1ActionPerformed(e));
+        SellProductButton.addActionListener(e -> SellProductActionPerformed(e));
 
         //---- RequestProductButton ----
         RequestProductButton.setText("Request a product");
         RequestProductButton.setBackground(Color.yellow);
-        RequestProductButton.addActionListener(e -> button2ActionPerformed(e));
+        RequestProductButton.addActionListener(e -> RequestProductActionPerformed(e));
 
         //---- Cancel ----
         Cancel.setText("Back");
