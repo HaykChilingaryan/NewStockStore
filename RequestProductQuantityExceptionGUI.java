@@ -34,7 +34,7 @@ public class RequestProductQuantityExceptionGUI extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Hayk
+        // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
         label1 = new JLabel();
         label2 = new JLabel();
         BuyButton = new JButton();
@@ -102,7 +102,7 @@ public class RequestProductQuantityExceptionGUI extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Hayk
+    // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
     private JLabel label1;
     private JLabel label2;
     private JButton BuyButton;

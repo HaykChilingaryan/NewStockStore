@@ -69,8 +69,13 @@ public class SellProductGUI extends JFrame {
             sellProductQuantityException.pack();
             sellProductQuantityException.setVisible(true);
         }
+        catch (NumberFormatException ex){
+            this.dispose();
+            NumberFormatExceptionGUI exception = new NumberFormatExceptionGUI();
+            exception.pack();
+            exception.setVisible(true);
 
-
+        }
 
     }
 

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Product {
     private String productName;
     private ProductType productType;
-    public static final ArrayList<Product> productList = new ArrayList<Product>() {
+    public static ArrayList<Product> productList = new ArrayList<Product>() {
         {
             add(new Product("Macun", ProductType.DAIRY));
             add(new Product("Sour Cream", ProductType.DAIRY));
@@ -29,6 +29,11 @@ public class Product {
         this.productName = productNames;
         this.productType = productType;
 
+    }
+
+    public Product(Product product){
+        this.productName = product.productName;
+        this.productType = product.productType;
     }
 
     //
@@ -66,16 +71,7 @@ public class Product {
      * @param productType if type ProductType
      */
     public void setProductType(ProductType productType) {
-        int count = 0;
-        for (ProductType prodType : ProductType.values()) {
-            if (prodType == productType) {
-                count++;
-                break;
-            }
-        }
-        if (count == 1) {
             this.productType = productType;
-        }
     }
 
     //
@@ -114,6 +110,7 @@ public class Product {
     public String toString() {
         return this.getProductName();
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

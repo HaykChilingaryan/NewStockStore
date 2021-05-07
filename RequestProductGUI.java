@@ -27,22 +27,24 @@ public class RequestProductGUI extends JFrame {
         //ProductComboBox.setModel(new DefaultComboBoxModel(Product.productList.toArray()));
         this.setVisible(true);
     }
-    private Product getProductFromList(String name){
+
+    private Product getProductFromList(String name) {
         Product prod = null;
-        for(Product p: Product.productList){
-            if(p.getProductName().equals(name)){
+        for (Product p : Product.productList) {
+            if (p.getProductName().equals(name)) {
                 prod = p;
             }
         }
         return prod;
     }
-    private StoreProduct getStoreProductFromInput(){
-        int quantity = Integer.parseInt(QuantityTextArea.getText());
-        double buyPrice = Double.parseDouble(SellPriceTextArea.getText());
-        double sellPrice = Double.parseDouble(BuyPriceTextArea.getText());
-        String name = (String)ProductComboBox.getSelectedItem();
-        Product product = getProductFromList(name);
-        return new StoreProduct(product,quantity,buyPrice,sellPrice);
+
+    private StoreProduct getStoreProductFromInput() {
+            int quantity = Integer.parseInt(QuantityTextArea.getText());
+            double buyPrice = Double.parseDouble(SellPriceTextArea.getText());
+            double sellPrice = Double.parseDouble(BuyPriceTextArea.getText());
+            String name = (String) ProductComboBox.getSelectedItem();
+            Product product = getProductFromList(name);
+            return new StoreProduct(product, quantity, buyPrice, sellPrice);
     }
     private void okButtonActionPerformed(ActionEvent e) throws ProductOutOfQuantityException, InvalidStoreProductAction, ProductNotFoundInStoreException, ProductNotFoundInStockException {
         try{
@@ -63,6 +65,13 @@ public class RequestProductGUI extends JFrame {
             RequestProductExceptionGUI requestProductException = new RequestProductExceptionGUI();
             requestProductException.pack();
             requestProductException.setVisible(true);
+        }
+        catch (NumberFormatException ex){
+            this.dispose();
+            NumberFormatExceptionGUI exception = new NumberFormatExceptionGUI();
+            exception.pack();
+            exception.setVisible(true);
+
         }
 
 
@@ -147,7 +156,7 @@ public class RequestProductGUI extends JFrame {
 
                 //---- ProductComboBox ----
                 ProductComboBox.setToolTipText("Choose an Item");
-                ProductComboBox.setSelectedIndex(0);
+                ProductComboBox.setSelectedIndex(-1);
                 ProductComboBox.setModel(new DefaultComboBoxModel<>(new String[] {
                     "Macun",
                     "Sour Cream",

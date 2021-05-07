@@ -47,12 +47,24 @@ public class AddProductGUI extends JFrame {
     }
 
     private void okButtonActionPerformed(ActionEvent e) throws ProductOutOfQuantityException, InvalidStoreProductAction {
-        Stock.Buy(getStoreProductFromInput());
-        StockGUI stock = new StockGUI();
-        stock.pack();
-        stock.setVisible(true);
-        dispose();
+        try{
+            Stock.Buy(getStoreProductFromInput());
+            StockGUI stock = new StockGUI();
+            stock.pack();
+            stock.setVisible(true);
+            dispose();
+        }
+        catch (NumberFormatException ex){
+            this.dispose();
+            NumberFormatExceptionGUI exception = new NumberFormatExceptionGUI();
+            exception.pack();
+            exception.setVisible(true);
+
+        }
+
     }
+
+
 
 
 
