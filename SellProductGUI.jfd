@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9.1" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -11,7 +11,7 @@ new FormModel {
 				"background": &Color0 new java.awt.Color( 153, 153, 255, 255 )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 					"$horizontalGroup": "par l {seq {par l {seq {space :::p, comp label3:::p::p}, seq l {par l:::p {seq {space :::p, comp label2:::p::p, space u:::p, comp textArea2:::p:78:p, space :::x, comp SellPrice:::p::p}, seq {space :p:14:p, comp label1:::p::p, space s:::p, comp nameBox:::p::p, space :p:60:p, comp BuyPrice:::p::p}}, space s:::p, par l {comp textArea3:::p:78:p, comp textArea4:::p:78:p}}}, space ::10:x}}"
-					"$verticalGroup": "par l {seq l {comp label3:::p::p, space s:::p, par b {comp textArea4::b:p::p, comp label1::b:p::p, comp nameBox::b:p::p, comp BuyPrice::b:p::p}, space ::49:x, par b {comp label2::b:p::p, comp textArea2::b:p::p, comp textArea3::b:p::p, comp SellPrice::b:p::p}, space :p:72:p}}"
+					"$verticalGroup": "par l {seq l {comp label3:::p::p, space s:::p, par b {comp textArea4::b:p::p, comp label1::b:p::p, comp nameBox::b:p::p, comp BuyPrice::b:p::p}, space ::24:x, par b {comp label2::b:p::p, comp textArea2::b:p::p, comp textArea3::b:p::p, comp SellPrice::b:p::p}, space :p:72:p}}"
 				} ) {
 					name: "contentPanel"
 					"background": #Color0
@@ -65,6 +65,21 @@ new FormModel {
 					} )
 					add( new FormComponent( "javax.swing.JComboBox" ) {
 						name: "nameBox"
+						"model": new javax.swing.DefaultComboBoxModel {
+							selectedItem: "Macun"
+							addElement( "Macun" )
+							addElement( "Sour Cream" )
+							addElement( "Milk" )
+							addElement( "Cheese" )
+							addElement( "Orange Juice" )
+							addElement( "Apple Juice" )
+							addElement( "Cheesecake" )
+							addElement( "Brownie" )
+							addElement( "Napoleon" )
+							addElement( "Cone" )
+							addElement( "Eskimo" )
+							addElement( "Caramel Ice Cream" )
+						}
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "nameBoxActionPerformed", true ) )
 						addEvent( new FormEvent( "java.awt.event.ItemListener", "itemStateChanged", "nameBoxItemStateChanged", true ) )
 					} )

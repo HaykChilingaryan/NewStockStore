@@ -25,15 +25,24 @@ public class AddProductGUI extends JFrame {
 
         initComponents();
         pack();
-        NewProductComboBox.setModel(new DefaultComboBoxModel(Product.productList.toArray()));
         this.setVisible(true);
     }
 
+    private Product getProductFromList(String name){
+        Product prod = null;
+        for(Product p: Product.productList){
+            if(p.getProductName().equals(name)){
+                prod = p;
+            }
+        }
+        return prod;
+    }
     private StoreProduct getStoreProductFromInput(){
         int quantity = Integer.parseInt(QuantityTextArea.getText());
         double buyPrice = Double.parseDouble(BuyPriceTextArea.getText());
         double sellPrice = Double.parseDouble(SellPriceTextArea.getText());
-        Product product = (Product)NewProductComboBox.getSelectedItem();
+        String name = (String)NewProductComboBox.getSelectedItem();
+        Product product = getProductFromList(name);
         return new StoreProduct(product,quantity,buyPrice,sellPrice);
     }
 
@@ -81,7 +90,7 @@ public class AddProductGUI extends JFrame {
         QuantityTextArea = new JTextArea();
         SellPriceTextArea = new JTextArea();
         BuyPriceTextArea = new JTextArea();
-        NewProductComboBox = new JComboBox();
+        NewProductComboBox = new JComboBox<>();
         okButton = new JButton();
         Cancel = new JButton();
         PageLabel = new JLabel();
@@ -94,13 +103,13 @@ public class AddProductGUI extends JFrame {
         {
             dialogPane.setBorder(new EmptyBorder(12, 12, 12, 12));
             dialogPane.setBackground(new Color(153, 153, 255));
-            dialogPane.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new
-            javax . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax
-            . swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java
-            . awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt
-            . Color .red ) ,dialogPane. getBorder () ) ); dialogPane. addPropertyChangeListener( new java. beans .
-            PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r" .
-            equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
+            dialogPane.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing
+            . border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder
+            . CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .
+            awt .Font .BOLD ,12 ), java. awt. Color. red) ,dialogPane. getBorder( )) )
+            ; dialogPane. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
+            ) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} )
+            ;
             dialogPane.setLayout(new BorderLayout());
 
             //======== buttonBar ========
@@ -138,6 +147,20 @@ public class AddProductGUI extends JFrame {
                     ProductBuyPriceLabel.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 12));
 
                     //---- NewProductComboBox ----
+                    NewProductComboBox.setModel(new DefaultComboBoxModel<>(new String[] {
+                        "Macun",
+                        "Sour Cream",
+                        "Milk",
+                        "Cheese",
+                        "Orange Juice",
+                        "Apple Juice",
+                        "Cheesecake",
+                        "Brownie",
+                        "Napoleon",
+                        "Cone",
+                        "Eskimo",
+                        "Caramel Ice Cream"
+                    }));
                     NewProductComboBox.addActionListener(e -> NewProductComboBoxActionPerformed(e));
 
                     GroupLayout contentPanelLayout = new GroupLayout(contentPanel);
@@ -204,8 +227,8 @@ public class AddProductGUI extends JFrame {
                 okButton.addActionListener(e -> {
                     try {
                         okButtonActionPerformed(e);
-                    } catch (ProductOutOfQuantityException | InvalidStoreProductAction exception) {
-                        exception.printStackTrace();
+                    } catch (ProductOutOfQuantityException | InvalidStoreProductAction productOutOfQuantityException) {
+                        productOutOfQuantityException.printStackTrace();
                     }
                 });
                 buttonBar.add(okButton, new GridBagConstraints(0, 3, 1, 1, 0.0, 0.0,
@@ -253,7 +276,7 @@ public class AddProductGUI extends JFrame {
     private JTextArea QuantityTextArea;
     private JTextArea SellPriceTextArea;
     private JTextArea BuyPriceTextArea;
-    private JComboBox NewProductComboBox;
+    private JComboBox<String> NewProductComboBox;
     private JButton okButton;
     private JButton Cancel;
     private JLabel PageLabel;

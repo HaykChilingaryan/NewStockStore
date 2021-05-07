@@ -53,11 +53,13 @@ public class RequestProductGUI extends JFrame {
             this.dispose();
         }
         catch(ProductOutOfQuantityException ex){
+            this.dispose();
             RequestProductQuantityExceptionGUI requestProductException = new RequestProductQuantityExceptionGUI();
             requestProductException.pack();
             requestProductException.setVisible(true);
         }
         catch(ProductNotFoundInStockException ex){
+            this.dispose();
             RequestProductExceptionGUI requestProductException = new RequestProductExceptionGUI();
             requestProductException.pack();
             requestProductException.setVisible(true);

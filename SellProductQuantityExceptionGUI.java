@@ -50,12 +50,12 @@ public class SellProductQuantityExceptionGUI extends JFrame {
         label1.setForeground(new Color(210, 43, 31));
 
         //---- label2 ----
-        label2.setText("Please, request the product");
+        label2.setText("Please, buy the product");
         label2.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 16));
         label2.setForeground(new Color(210, 43, 31));
 
         //---- RequestButton ----
-        RequestButton.setText("Request");
+        RequestButton.setText("Buy");
         RequestButton.setBackground(new Color(87, 178, 74));
         RequestButton.addActionListener(e -> RequestButtonActionPerformed(e));
 
