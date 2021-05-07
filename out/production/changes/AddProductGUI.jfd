@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9.1" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -64,6 +64,21 @@ new FormModel {
 						} )
 						add( new FormComponent( "javax.swing.JComboBox" ) {
 							name: "NewProductComboBox"
+							"model": new javax.swing.DefaultComboBoxModel {
+								selectedItem: "Macun"
+								addElement( "Macun" )
+								addElement( "Sour Cream" )
+								addElement( "Milk" )
+								addElement( "Cheese" )
+								addElement( "Orange Juice" )
+								addElement( "Apple Juice" )
+								addElement( "Cheesecake" )
+								addElement( "Brownie" )
+								addElement( "Napoleon" )
+								addElement( "Cone" )
+								addElement( "Eskimo" )
+								addElement( "Caramel Ice Cream" )
+							}
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "NewProductComboBoxActionPerformed", true ) )
 						} )
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {

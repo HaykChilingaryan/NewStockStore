@@ -8,8 +8,8 @@ new FormModel {
 			"JavaCodeGenerator.memberVariableThis": true
 		}
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space ::75:x, par t {seq {comp label2:::p::p, space s:::p, comp stockButton:::p:161:p}, seq {comp label3:::p::p, space s:::p, comp storeButton:::p:161:p}}, space :p:94:p}}"
-			"$verticalGroup": "par l {seq t {space ::56:x, par t {comp storeButton:::p:46:p, comp label3:::p:37:p}, space :p:33:p, par l {comp stockButton:::p:47:p, comp label2:::p::p}, space :p:98:p}}"
+			"$horizontalGroup": "par l {seq {space ::93:x, par l {seq t {comp label2:::p::p, space u:::p, comp stockButton:::p:161:p}, seq t {comp label3:::p::p, space u:::p, par l {comp storeButton:::p:161:p, comp StoreName:::p:67:p}}}, space :82:82:p}}"
+			"$verticalGroup": "par l {seq t {space :p:14:p, comp StoreName::::32:x, space :p:30:p, par t {comp storeButton:::p:46:p, comp label3:::p:37:p}, space :p:33:p, par l {comp stockButton:::p:47:p, comp label2:::p::p}, space :p:78:p}}"
 		} ) {
 			name: "this"
 			"background": sfield java.awt.Color pink
@@ -32,6 +32,11 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
 				"icon": new com.jformdesigner.model.SwingIcon( 0, "/icons/shop-512.png" )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "StoreName"
+				"font": new java.awt.Font( "Berlin Sans FB Demi", 1, 18 )
+				"foreground": sfield java.awt.Color yellow
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 125, 30 )

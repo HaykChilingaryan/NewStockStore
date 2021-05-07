@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Stock implements Cloneable {
-    public static double stockBudget = 10000000;
+    public static double stockBudget = 1000000;
     public static ArrayList<StoreProduct> stockProductList = new ArrayList<StoreProduct>(){
         {
             add(new StoreProduct(Product.productList.get(0),10,7.0,8.0));

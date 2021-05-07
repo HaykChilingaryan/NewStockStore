@@ -83,7 +83,7 @@ public class RequestProductGUI extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Hayk
+        // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
         dialogPane = new JPanel();
         contentPanel = new JPanel();
         NameLabel = new JLabel();
@@ -107,11 +107,12 @@ public class RequestProductGUI extends JFrame {
         {
             dialogPane.setBorder(new EmptyBorder(12, 12, 12, 12));
             dialogPane.setBackground(new Color(153, 153, 255));
-            dialogPane.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
-            0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
-            . BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
-            red) ,dialogPane. getBorder( )) ); dialogPane. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
-            beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+            dialogPane.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .
+            EmptyBorder ( 0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax. swing .border . TitledBorder. CENTER ,javax . swing
+            . border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,
+            java . awt. Color .red ) ,dialogPane. getBorder () ) ); dialogPane. addPropertyChangeListener( new java. beans .PropertyChangeListener ( )
+            { @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "bord\u0065r" .equals ( e. getPropertyName () ) )
+            throw new RuntimeException( ) ;} } );
             dialogPane.setLayout(new BorderLayout());
 
             //======== contentPanel ========
@@ -146,7 +147,7 @@ public class RequestProductGUI extends JFrame {
 
                 //---- ProductComboBox ----
                 ProductComboBox.setToolTipText("Choose an Item");
-                ProductComboBox.setSelectedIndex(-1);
+                ProductComboBox.setSelectedIndex(0);
                 ProductComboBox.setModel(new DefaultComboBoxModel<>(new String[] {
                     "Macun",
                     "Sour Cream",
@@ -238,7 +239,7 @@ public class RequestProductGUI extends JFrame {
                     } catch (ProductNotFoundInStockException productNotFoundInStockException) {
                         productNotFoundInStockException.printStackTrace();
                     }
-		});
+                });
                 buttonBar.add(okButton, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 0, 5), 0, 0));
@@ -260,7 +261,7 @@ public class RequestProductGUI extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Hayk
+    // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
     private JPanel dialogPane;
     private JPanel contentPanel;
     private JLabel NameLabel;

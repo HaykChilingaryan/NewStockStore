@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public final class Store implements Cloneable {
-    private static String storeName = "Tamara";
+    public static String storeName = "7eleven";
     private static String storeLicenseNumber = "DE939379237";
-    public static double storeBudget = 1000000;
+    public static double storeBudget = 0;
     public static ArrayList<StoreProduct> productList = new ArrayList<>(0);
 
     //

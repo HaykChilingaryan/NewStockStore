@@ -35,7 +35,7 @@ public class SellProductQuantityExceptionGUI extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Hayk
+        // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
         label1 = new JLabel();
         label2 = new JLabel();
         RequestButton = new JButton();
@@ -50,12 +50,12 @@ public class SellProductQuantityExceptionGUI extends JFrame {
         label1.setForeground(new Color(210, 43, 31));
 
         //---- label2 ----
-        label2.setText("Please, buy the product");
+        label2.setText("Please, request the product");
         label2.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 16));
         label2.setForeground(new Color(210, 43, 31));
 
         //---- RequestButton ----
-        RequestButton.setText("Buy");
+        RequestButton.setText("Request");
         RequestButton.setBackground(new Color(87, 178, 74));
         RequestButton.addActionListener(e -> RequestButtonActionPerformed(e));
 
@@ -103,7 +103,7 @@ public class SellProductQuantityExceptionGUI extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Hayk
+    // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
     private JLabel label1;
     private JLabel label2;
     private JButton RequestButton;
