@@ -38,7 +38,7 @@ public class AddProductGUI extends JFrame {
     }
 
     private void okButtonActionPerformed(ActionEvent e) throws ProductOutOfQuantityException, InvalidStoreProductAction {
-        Stock.BuyNewProduct(getStoreProductFromInput());
+        Stock.Buy(getStoreProductFromInput());
         StockGUI stock = new StockGUI();
         stock.pack();
         stock.setVisible(true);
@@ -48,10 +48,11 @@ public class AddProductGUI extends JFrame {
 
 
     private void CancelActionPerformed(ActionEvent e) {
+        this.dispose();
         StockGUI stock = new StockGUI();
         stock.pack();
         stock.setVisible(true);
-        this.dispose();
+
     }
 
     private void NewProductComboBoxActionPerformed(ActionEvent e) {
@@ -93,13 +94,13 @@ public class AddProductGUI extends JFrame {
         {
             dialogPane.setBorder(new EmptyBorder(12, 12, 12, 12));
             dialogPane.setBackground(new Color(153, 153, 255));
-            dialogPane.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax
-            . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax. swing
-            .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .
-            Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red
-            ) ,dialogPane. getBorder () ) ); dialogPane. addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override
-            public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName (
-            ) ) )throw new RuntimeException( ) ;} } );
+            dialogPane.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new
+            javax . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax
+            . swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java
+            . awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt
+            . Color .red ) ,dialogPane. getBorder () ) ); dialogPane. addPropertyChangeListener( new java. beans .
+            PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r" .
+            equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
             dialogPane.setLayout(new BorderLayout());
 
             //======== buttonBar ========
@@ -203,8 +204,8 @@ public class AddProductGUI extends JFrame {
                 okButton.addActionListener(e -> {
                     try {
                         okButtonActionPerformed(e);
-                    } catch (ProductOutOfQuantityException | InvalidStoreProductAction productOutOfQuantityException) {
-                        productOutOfQuantityException.printStackTrace();
+                    } catch (ProductOutOfQuantityException | InvalidStoreProductAction exception) {
+                        exception.printStackTrace();
                     }
                 });
                 buttonBar.add(okButton, new GridBagConstraints(0, 3, 1, 1, 0.0, 0.0,

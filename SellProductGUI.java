@@ -34,28 +34,32 @@ public class SellProductGUI extends JFrame {
 
     private StoreProduct getStoreProductFromInput(){
         int quantity = Integer.parseInt(textArea2.getText());
-        double buyPrice = Double.parseDouble(textArea3.getText());
-        double sellPrice = Double.parseDouble(textArea4.getText());
+        double buyPrice = Double.parseDouble(textArea4.getText());
+        double sellPrice = Double.parseDouble(textArea3.getText());
         Product product = (Product)nameBox.getSelectedItem();
         return new StoreProduct(product,quantity,buyPrice,sellPrice);
     }
     private void okButtonActionPerformed(ActionEvent e) throws ProductOutOfQuantityException, InvalidStoreProductAction, ProductNotFoundInStoreException, ProductNotFoundInStockException {
         try{
             Store.Sell(getStoreProductFromInput());
+            StoreGUI store = new StoreGUI();
+            store.pack();
+            store.setVisible(true);
+            this.dispose();
         }
-        catch(ProductNotFoundInStockException ex){
+        catch(ProductNotFoundInStoreException ex){
+            SellProductStoreExceptionGUI sellProductStoreException = new SellProductStoreExceptionGUI();
+            sellProductStoreException.pack();
+            sellProductStoreException.setVisible(true);
+        }
+        catch (ProductOutOfQuantityException ex){
+            SellProductQuantityExceptionGUI sellProductQuantityException = new SellProductQuantityExceptionGUI();
+            sellProductQuantityException.pack();
+            sellProductQuantityException.setVisible(true);
+        }
 
-        }
-        catch(ProductOutOfQuantityException ex){
 
-        }
-        catch (ProductNotFoundInStoreException ex){
 
-        }
-        StoreGUI store = new StoreGUI();
-        store.pack();
-        store.setVisible(true);
-        this.dispose();
     }
 
 
@@ -64,6 +68,14 @@ public class SellProductGUI extends JFrame {
         store.pack();
         store.setVisible(true);
         this.dispose();
+    }
+
+    private void nameBoxActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void nameBoxItemStateChanged(ItemEvent e) {
+        // TODO add your code here
     }
 
 
@@ -94,12 +106,12 @@ public class SellProductGUI extends JFrame {
         {
             dialogPane.setBorder(new EmptyBorder(12, 12, 12, 12));
             dialogPane.setBackground(new Color(153, 153, 255));
-            dialogPane.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border
-            . EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax
-            . swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,
-            12 ), java. awt. Color. red) ,dialogPane. getBorder( )) ); dialogPane. addPropertyChangeListener (new java. beans
-            . PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .
-            getPropertyName () )) throw new RuntimeException( ); }} );
+            dialogPane.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing.
+            border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e" , javax. swing .border . TitledBorder. CENTER
+            ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dialo\u0067", java .awt . Font
+            . BOLD ,12 ) ,java . awt. Color .red ) ,dialogPane. getBorder () ) ); dialogPane. addPropertyChangeListener(
+            new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "borde\u0072"
+            .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
             dialogPane.setLayout(new BorderLayout());
 
             //======== contentPanel ========
@@ -146,7 +158,9 @@ public class SellProductGUI extends JFrame {
                 textArea4.setCaretColor(Color.black);
                 textArea4.setSelectedTextColor(Color.black);
 
-
+                //---- nameBox ----
+                nameBox.addActionListener(e -> nameBoxActionPerformed(e));
+                nameBox.addItemListener(e -> nameBoxItemStateChanged(e));
 
                 GroupLayout contentPanelLayout = new GroupLayout(contentPanel);
                 contentPanel.setLayout(contentPanelLayout);
@@ -158,20 +172,20 @@ public class SellProductGUI extends JFrame {
                                     .addContainerGap()
                                     .addComponent(label3))
                                 .addGroup(contentPanelLayout.createSequentialGroup()
-                                    .addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(GroupLayout.Alignment.LEADING, contentPanelLayout.createSequentialGroup()
-                                            .addGap(14, 14, 14)
-                                            .addComponent(label1)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(nameBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(SellPrice))
-                                        .addGroup(GroupLayout.Alignment.LEADING, contentPanelLayout.createSequentialGroup()
+                                    .addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(contentPanelLayout.createSequentialGroup()
                                             .addContainerGap()
                                             .addComponent(label2)
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(textArea2, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
-                                            .addGap(59, 59, 59)
+                                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(SellPrice))
+                                        .addGroup(contentPanelLayout.createSequentialGroup()
+                                            .addGap(14, 14, 14)
+                                            .addComponent(label1)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(nameBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                            .addGap(60, 60, 60)
                                             .addComponent(BuyPrice)))
                                     .addGap(18, 18, 18)
                                     .addGroup(contentPanelLayout.createParallelGroup()
@@ -186,15 +200,15 @@ public class SellProductGUI extends JFrame {
                             .addGap(18, 18, 18)
                             .addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(textArea4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(SellPrice)
                                 .addComponent(label1)
-                                .addComponent(nameBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(nameBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BuyPrice))
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                             .addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(label2)
                                 .addComponent(textArea2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(BuyPrice)
-                                .addComponent(textArea3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(textArea3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SellPrice))
                             .addGap(72, 72, 72))
                 );
             }
@@ -214,11 +228,17 @@ public class SellProductGUI extends JFrame {
                 okButton.addActionListener(e -> {
                     try {
                         okButtonActionPerformed(e);
-                    } catch (ProductOutOfQuantityException | InvalidStoreProductAction | ProductNotFoundInStoreException | ProductNotFoundInStockException exception) {
-                        exception.printStackTrace();
+                    } catch (ProductOutOfQuantityException productOutOfQuantityException) {
+                        productOutOfQuantityException.printStackTrace();
+                    } catch (InvalidStoreProductAction invalidStoreProductAction) {
+                        invalidStoreProductAction.printStackTrace();
+                    } catch (ProductNotFoundInStoreException productNotFoundInStoreException) {
+                        productNotFoundInStoreException.printStackTrace();
+                    } catch (ProductNotFoundInStockException productNotFoundInStockException) {
+                        productNotFoundInStockException.printStackTrace();
                     }
                 });
-                buttonBar.add(okButton, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
+                buttonBar.add(okButton, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 0, 5), 0, 0));
 
@@ -226,7 +246,7 @@ public class SellProductGUI extends JFrame {
                 CancelButton.setText("Cancel");
                 CancelButton.setBackground(Color.yellow);
                 CancelButton.addActionListener(e -> CancelButtonActionPerformed(e));
-                buttonBar.add(CancelButton, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
+                buttonBar.add(CancelButton, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 0, 0), 0, 0));
             }

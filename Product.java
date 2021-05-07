@@ -3,8 +3,7 @@ import java.util.ArrayList;
 public class Product {
     private String productName;
     private ProductType productType;
-
-    public static ArrayList<Product> productList = new ArrayList<Product>() {
+    public static final ArrayList<Product> productList = new ArrayList<Product>() {
         {
             add(new Product("Macun", ProductType.DAIRY));
             add(new Product("Sour Cream", ProductType.DAIRY));
@@ -21,27 +20,51 @@ public class Product {
         }
     };
 
+    /**
+     * Constructor for creating object of type Product
+     * @param productNames of type String
+     * @param productType of enum type ProductType
+     */
     public Product(String productNames, ProductType productType) {
         this.productName = productNames;
         this.productType = productType;
 
     }
 
+    //
     //Accessors
+    //
+    /**
+     * Function to get Product name
+     * @return String
+     */
     public String getProductName() {
         return this.productName;
     }
 
+    /**
+     * Function to get Product Type
+     * @return String
+     */
     public String getProductType() {
         return this.productType.getProductTypeName();
     }
 
-
+    //
     //Mutators
+    //
+    /**
+     * Function for setting Product name
+     * @param productName of type String
+     */
     public void setProductName(String productName) {
         this.productName = productName;
     }
 
+    /**
+     * Function for setting Product type
+     * @param productType if type ProductType
+     */
     public void setProductType(ProductType productType) {
         int count = 0;
         for (ProductType prodType : ProductType.values()) {
@@ -55,8 +78,13 @@ public class Product {
         }
     }
 
-
+    //
     //Enumerations
+    //
+
+    /**
+     * Enumeration for Product types
+     */
     public enum ProductType {
         NULL(""),
         DAIRY("Dairy"),
@@ -79,12 +107,14 @@ public class Product {
         }
     }
 
-
+    //
     //Methods
+    //
+    @Override
     public String toString() {
         return this.getProductName();
     }
-
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

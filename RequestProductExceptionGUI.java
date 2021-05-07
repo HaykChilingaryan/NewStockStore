@@ -26,15 +26,16 @@ public class RequestProductExceptionGUI extends JFrame {
     }
 
     private void button1ActionPerformed(ActionEvent e) {
-        StockGUI stock = new StockGUI();
+        this.dispose();
+        AddProductGUI stock = new AddProductGUI();
         stock.pack();
         stock.setVisible(true);
-        this.dispose();
+
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
+        // Generated using JFormDesigner Evaluation license - Hayk
         label1 = new JLabel();
         label2 = new JLabel();
         Request = new JButton();
@@ -44,17 +45,17 @@ public class RequestProductExceptionGUI extends JFrame {
         var contentPane = getContentPane();
 
         //---- label1 ----
-        label1.setText("No sell product ");
+        label1.setText("No such product in stock");
         label1.setForeground(new Color(210, 43, 31));
         label1.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 16));
 
         //---- label2 ----
-        label2.setText("Please, request the product ");
+        label2.setText("Please, buy the product ");
         label2.setForeground(new Color(210, 43, 31));
         label2.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 16));
 
         //---- Request ----
-        Request.setText("Request");
+        Request.setText("Buy");
         Request.setBackground(new Color(87, 178, 74));
         Request.addActionListener(e -> button1ActionPerformed(e));
 
@@ -78,7 +79,7 @@ public class RequestProductExceptionGUI extends JFrame {
                             .addGap(97, 97, 97)
                             .addComponent(label2))
                         .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addGap(142, 142, 142)
+                            .addGap(109, 109, 109)
                             .addComponent(label1)))
                     .addContainerGap(99, Short.MAX_VALUE))
         );
@@ -87,7 +88,7 @@ public class RequestProductExceptionGUI extends JFrame {
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addGap(17, 17, 17)
                     .addComponent(label3)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGap(12, 12, 12)
                     .addComponent(label1)
                     .addGap(18, 18, 18)
                     .addComponent(label2)
@@ -101,7 +102,7 @@ public class RequestProductExceptionGUI extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
+    // Generated using JFormDesigner Evaluation license - Hayk
     private JLabel label1;
     private JLabel label2;
     private JButton Request;

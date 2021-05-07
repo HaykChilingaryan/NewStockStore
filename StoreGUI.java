@@ -1,3 +1,4 @@
+
 import com.sun.tools.javac.Main;
 
 import java.awt.*;
@@ -16,6 +17,7 @@ import javax.swing.GroupLayout;
 public class StoreGUI extends JFrame {
     public StoreGUI() {
         initComponents();
+        BudgetLabel.setText("Budget: " + Store.storeBudget);
         getContentPane().setBackground(new Color(153, 153, 255));
     }
 
@@ -54,11 +56,13 @@ public class StoreGUI extends JFrame {
 
 
 
+
+
     
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
+        // Generated using JFormDesigner Evaluation license - Hayk
         SellProductButton = new JButton();
         RequestProductButton = new JButton();
         Cancel = new JButton();
@@ -66,6 +70,7 @@ public class StoreGUI extends JFrame {
         label2 = new JLabel();
         label3 = new JLabel();
         label4 = new JLabel();
+        BudgetLabel = new JLabel();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -100,31 +105,38 @@ public class StoreGUI extends JFrame {
         //---- label4 ----
         label4.setIcon(new ImageIcon(getClass().getResource("/icons/shopping__business__coins__dollar_-512.png")));
 
+        //---- BudgetLabel ----
+        BudgetLabel.setText("text");
+
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addContainerGap(63, Short.MAX_VALUE)
+                    .addContainerGap()
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(0, 77, Short.MAX_VALUE)
+                            .addGroup(contentPaneLayout.createParallelGroup()
+                                .addComponent(label4, GroupLayout.Alignment.TRAILING)
+                                .addComponent(label2, GroupLayout.Alignment.TRAILING)
+                                .addComponent(label3, GroupLayout.Alignment.TRAILING)))
+                        .addComponent(BudgetLabel, GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE))
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(contentPaneLayout.createParallelGroup()
                         .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                .addComponent(label4)
-                                .addComponent(label2)
-                                .addComponent(label3))
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                 .addComponent(SellProductButton, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
                                 .addComponent(RequestProductButton, GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
                                 .addComponent(ProductList, GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
-                            .addGap(135, 135, 135))
+                            .addGap(115, 115, 115))
                         .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                             .addComponent(Cancel)
                             .addContainerGap())))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
-                .addGroup(contentPaneLayout.createSequentialGroup()
+                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                     .addGap(26, 26, 26)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                         .addComponent(SellProductButton, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
@@ -138,7 +150,9 @@ public class StoreGUI extends JFrame {
                         .addComponent(ProductList, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
                         .addComponent(label3))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                    .addComponent(Cancel)
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                        .addComponent(Cancel)
+                        .addComponent(BudgetLabel))
                     .addContainerGap())
         );
         pack();
@@ -147,7 +161,7 @@ public class StoreGUI extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
+    // Generated using JFormDesigner Evaluation license - Hayk
     private JButton SellProductButton;
     private JButton RequestProductButton;
     private JButton Cancel;
@@ -155,5 +169,6 @@ public class StoreGUI extends JFrame {
     private JLabel label2;
     private JLabel label3;
     private JLabel label4;
+    private JLabel BudgetLabel;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

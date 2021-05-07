@@ -24,15 +24,24 @@ public class RequestProductGUI extends JFrame {
     public RequestProductGUI() {
         initComponents();
         pack();
-        ProductComboBox.setModel(new DefaultComboBoxModel(Product.productList.toArray()));
+        //ProductComboBox.setModel(new DefaultComboBoxModel(Product.productList.toArray()));
         this.setVisible(true);
     }
-
+    private Product getProductFromList(String name){
+        Product prod = null;
+        for(Product p: Product.productList){
+            if(p.getProductName().equals(name)){
+                prod = p;
+            }
+        }
+        return prod;
+    }
     private StoreProduct getStoreProductFromInput(){
         int quantity = Integer.parseInt(QuantityTextArea.getText());
-        double buyPrice = Double.parseDouble(BuyPriceTextArea.getText());
-        double sellPrice = Double.parseDouble(SellPriceTextArea.getText());
-        Product product = (Product)ProductComboBox.getSelectedItem();
+        double buyPrice = Double.parseDouble(SellPriceTextArea.getText());
+        double sellPrice = Double.parseDouble(BuyPriceTextArea.getText());
+        String name = (String)ProductComboBox.getSelectedItem();
+        Product product = getProductFromList(name);
         return new StoreProduct(product,quantity,buyPrice,sellPrice);
     }
     private void okButtonActionPerformed(ActionEvent e) throws ProductOutOfQuantityException, InvalidStoreProductAction, ProductNotFoundInStoreException, ProductNotFoundInStockException {
@@ -44,14 +53,16 @@ public class RequestProductGUI extends JFrame {
             this.dispose();
         }
         catch(ProductOutOfQuantityException ex){
-
+            RequestProductQuantityExceptionGUI requestProductException = new RequestProductQuantityExceptionGUI();
+            requestProductException.pack();
+            requestProductException.setVisible(true);
         }
         catch(ProductNotFoundInStockException ex){
-
+            RequestProductExceptionGUI requestProductException = new RequestProductExceptionGUI();
+            requestProductException.pack();
+            requestProductException.setVisible(true);
         }
-        catch (ProductNotFoundInStoreException ex){
 
-        }
 
     }
 
@@ -64,6 +75,10 @@ public class RequestProductGUI extends JFrame {
         this.dispose();
     }
 
+    private void ProductComboBoxActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Hayk
@@ -74,7 +89,7 @@ public class RequestProductGUI extends JFrame {
         QuantityTextArea = new JTextArea();
         PageTextArea = new JLabel();
         SellPriceLabel = new JLabel();
-        ProductComboBox = new JComboBox();
+        ProductComboBox = new JComboBox<>();
         BuyPriceLabel = new JLabel();
         SellPriceTextArea = new JTextArea();
         BuyPriceTextArea = new JTextArea();
@@ -90,11 +105,11 @@ public class RequestProductGUI extends JFrame {
         {
             dialogPane.setBorder(new EmptyBorder(12, 12, 12, 12));
             dialogPane.setBackground(new Color(153, 153, 255));
-            dialogPane.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder( 0
-            , 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
-            , new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) ,
-            dialogPane. getBorder( )) ); dialogPane. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-            ) {if ("borde\u0072" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+            dialogPane.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
+            0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
+            . BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
+            red) ,dialogPane. getBorder( )) ); dialogPane. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
+            beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
             dialogPane.setLayout(new BorderLayout());
 
             //======== contentPanel ========
@@ -127,6 +142,24 @@ public class RequestProductGUI extends JFrame {
                 SellPriceLabel.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 14));
                 SellPriceLabel.setForeground(Color.yellow);
 
+                //---- ProductComboBox ----
+                ProductComboBox.setToolTipText("Choose an Item");
+                ProductComboBox.setSelectedIndex(-1);
+                ProductComboBox.setModel(new DefaultComboBoxModel<>(new String[] {
+                    "Macun",
+                    "Sour Cream",
+                    "Milk",
+                    "Cheese",
+                    "Orange Juice",
+                    "Apple Juice",
+                    "Cheesecake",
+                    "Brownie",
+                    "Napoleon",
+                    "Cone",
+                    "Eskimo",
+                    "Caramel Ice Cream"
+                }));
+
                 //---- BuyPriceLabel ----
                 BuyPriceLabel.setText("Buy Price");
                 BuyPriceLabel.setForeground(Color.yellow);
@@ -143,17 +176,17 @@ public class RequestProductGUI extends JFrame {
                                 .addComponent(QuantityLabel))
                             .addGap(18, 18, 18)
                             .addGroup(contentPanelLayout.createParallelGroup()
-                                .addComponent(ProductComboBox, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(QuantityTextArea, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                                .addComponent(QuantityTextArea, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ProductComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                             .addGroup(contentPanelLayout.createParallelGroup()
-                                .addComponent(BuyPriceLabel, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(SellPriceLabel, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(BuyPriceLabel, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SellPriceLabel, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                .addComponent(SellPriceTextArea, GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                                .addComponent(BuyPriceTextArea, GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
-                            .addContainerGap(45, Short.MAX_VALUE))
+                            .addGroup(contentPanelLayout.createParallelGroup()
+                                .addComponent(BuyPriceTextArea, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SellPriceTextArea))
+                            .addContainerGap(34, Short.MAX_VALUE))
                         .addGroup(contentPanelLayout.createSequentialGroup()
                             .addGap(59, 59, 59)
                             .addComponent(PageTextArea)
@@ -164,20 +197,18 @@ public class RequestProductGUI extends JFrame {
                         .addGroup(contentPanelLayout.createSequentialGroup()
                             .addComponent(PageTextArea)
                             .addGap(30, 30, 30)
-                            .addGroup(contentPanelLayout.createParallelGroup()
-                                .addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(NameLabel)
-                                    .addComponent(ProductComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                .addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(SellPriceTextArea, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(SellPriceLabel)))
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                            .addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(NameLabel)
+                                .addComponent(SellPriceTextArea, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BuyPriceLabel)
+                                .addComponent(ProductComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                             .addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(QuantityLabel)
                                 .addComponent(QuantityTextArea, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addComponent(BuyPriceTextArea, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(BuyPriceLabel))
-                            .addGap(76, 76, 76))
+                                .addComponent(SellPriceLabel))
+                            .addGap(86, 86, 86))
                 );
             }
             dialogPane.add(contentPanel, BorderLayout.CENTER);
@@ -196,11 +227,16 @@ public class RequestProductGUI extends JFrame {
                 okButton.addActionListener(e -> {
                     try {
                         okButtonActionPerformed(e);
-                    } catch (ProductOutOfQuantityException | InvalidStoreProductAction | ProductNotFoundInStoreException | ProductNotFoundInStockException exception) {
-                        exception.printStackTrace();
+                    } catch (ProductOutOfQuantityException productOutOfQuantityException) {
+                        productOutOfQuantityException.printStackTrace();
+                    } catch (InvalidStoreProductAction invalidStoreProductAction) {
+                        invalidStoreProductAction.printStackTrace();
+                    } catch (ProductNotFoundInStoreException productNotFoundInStoreException) {
+                        productNotFoundInStoreException.printStackTrace();
+                    } catch (ProductNotFoundInStockException productNotFoundInStockException) {
+                        productNotFoundInStockException.printStackTrace();
                     }
-
-                });
+		});
                 buttonBar.add(okButton, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 0, 5), 0, 0));
@@ -230,7 +266,7 @@ public class RequestProductGUI extends JFrame {
     private JTextArea QuantityTextArea;
     private JLabel PageTextArea;
     private JLabel SellPriceLabel;
-    private JComboBox ProductComboBox;
+    private JComboBox<String> ProductComboBox;
     private JLabel BuyPriceLabel;
     private JTextArea SellPriceTextArea;
     private JTextArea BuyPriceTextArea;

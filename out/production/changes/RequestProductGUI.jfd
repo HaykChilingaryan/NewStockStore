@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9.1" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -10,8 +10,8 @@ new FormModel {
 				"border": new javax.swing.border.EmptyBorder( 12, 12, 12, 12 )
 				"background": new java.awt.Color( 153, 153, 255, 255 )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq t {space :p:20:p, par l {comp NameLabel::l:p::p, comp QuantityLabel::l:p::p}, space s:::p, par l {comp ProductComboBox:::p:78:p, comp QuantityTextArea:::p:45:p}, space ::39:x, par l {comp BuyPriceLabel::t:p:67:p, comp SellPriceLabel::t:p:58:p}, space u:::p, par l {comp BuyPriceTextArea:::p:45:p, comp SellPriceTextArea:::::x}, space ::40:x}, seq l {space :p:59:p, comp PageTextArea:::p::p, space ::69:x}}"
-					"$verticalGroup": "par l {seq l {comp PageTextArea:::p::p, space :p:30:p, par b {comp NameLabel::b:p::p, comp ProductComboBox::b:p::p, comp SellPriceTextArea::b:p:17:p, comp BuyPriceLabel::b:p::p}, space ::33:x, par b {comp QuantityLabel::b:p::p, comp QuantityTextArea::b:p::p, comp BuyPriceTextArea::b:p::p, comp SellPriceLabel::b:p::p}, space :p:76:p}}"
+					"$horizontalGroup": "par l {seq t {space :p:20:p, par l {comp NameLabel::l:p::p, comp QuantityLabel::l:p::p}, space s:::p, par l {comp QuantityTextArea:::p:45:p, comp ProductComboBox:::p::p}, space ::15:x, par l {comp BuyPriceLabel::t:p:67:p, comp SellPriceLabel::t:p:58:p}, space u:::p, par l {comp BuyPriceTextArea:::p:45:p, comp SellPriceTextArea:::::x}, space ::34:x}, seq {space :p:59:p, comp PageTextArea:::p::p, space ::69:x}}"
+					"$verticalGroup": "par l {seq l {comp PageTextArea:::p::p, space :p:30:p, par b {comp NameLabel::b:p::p, comp SellPriceTextArea::b:p:17:p, comp BuyPriceLabel::b:p::p, comp ProductComboBox::b:p::p}, space ::23:x, par b {comp QuantityLabel::b:p::p, comp QuantityTextArea::b:p::p, comp BuyPriceTextArea::b:p::p, comp SellPriceLabel::b:p::p}, space :p:86:p}}"
 				} ) {
 					name: "contentPanel"
 					"background": new java.awt.Color( 153, 153, 255, 255 )
@@ -48,6 +48,23 @@ new FormModel {
 					} )
 					add( new FormComponent( "javax.swing.JComboBox" ) {
 						name: "ProductComboBox"
+						"toolTipText": "Choose an Item"
+						"selectedIndex": 0
+						"model": new javax.swing.DefaultComboBoxModel {
+							selectedItem: "Macun"
+							addElement( "Macun" )
+							addElement( "Sour Cream" )
+							addElement( "Milk" )
+							addElement( "Cheese" )
+							addElement( "Orange Juice" )
+							addElement( "Apple Juice" )
+							addElement( "Cheesecake" )
+							addElement( "Brownie" )
+							addElement( "Napoleon" )
+							addElement( "Cone" )
+							addElement( "Eskimo" )
+							addElement( "Caramel Ice Cream" )
+						}
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "BuyPriceLabel"

@@ -1,16 +1,16 @@
-JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9.1" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq t {space :0:84:x, comp Request:::p:235:p, space :p:79:p}, seq {par l {seq l {space :p:166:p, comp label3:::p::p}, seq l {space :p:97:p, comp label2:::p::p}, seq l {space :p:142:p, comp label1:::p::p}}, space ::99:x}}"
-			"$verticalGroup": "par l {seq l {space :p:17:p, comp label3:::p::p, space u:::p, comp label1:::p::p, space :p:18:p, comp label2:::p::p, space ::52:x, comp Request:::p::p, space :p:51:p}}"
+			"$horizontalGroup": "par l {seq t {space :0:84:x, comp Request:::p:235:p, space :p:79:p}, seq {par l {seq l {space :p:166:p, comp label3:::p::p}, seq l {space :p:97:p, comp label2:::p::p}, seq l {space :p:109:p, comp label1:::p::p}}, space ::99:x}}"
+			"$verticalGroup": "par l {seq l {space :p:17:p, comp label3:::p::p, space :p:12:p, comp label1:::p::p, space s:::p, comp label2:::p::p, space ::52:x, comp Request:::p::p, space :p:51:p}}"
 		} ) {
 			name: "this"
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
-				"text": "No sell product "
+				"text": "No sell product in stock"
 				"foreground": &Color0 new java.awt.Color( 210, 43, 31, 255 )
 				"font": &Font0 new java.awt.Font( "Berlin Sans FB Demi", 1, 16 )
 			} )

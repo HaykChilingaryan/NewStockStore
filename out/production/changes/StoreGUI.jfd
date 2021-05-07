@@ -1,11 +1,11 @@
-JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.9.1" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space ::63:x, par l {seq t {par t {comp label4:::p::p, comp label2::t:p::p, comp label3::t:p::p}, space u:::p, par l:::p {comp SellProductButton::t::138:x, comp RequestProductButton::l::138:x, comp ProductList::l::138:x}, space :p:135:p}, seq t {comp Cancel:::p::p, space :::p}}}}"
-			"$verticalGroup": "par l {seq l {space :p:26:p, par t {comp SellProductButton:::p:44:p, comp label4:::p::p}, space s:::p, par l {comp label2::l:p::p, comp RequestProductButton::l:p:46:p}, space :p:30:p, par l {comp ProductList:::p:46:p, comp label3:::p::p}, space ::8:x, comp Cancel:::p::p, space :::p}}"
+			"$horizontalGroup": "par l {seq {space :::p, par l {seq {space :0:77:x, par l {comp label4::t:p::p, comp label2::t:p::p, comp label3::t:p::p}}, comp BudgetLabel::::127:x}, space u:::p, par l {seq t {par l:::p {comp SellProductButton::t::138:x, comp RequestProductButton::l::138:x, comp ProductList::l::138:x}, space :p:115:p}, seq t {comp Cancel:::p::p, space :::p}}}}"
+			"$verticalGroup": "par l {seq t {space :p:26:p, par t {comp SellProductButton:::p:44:p, comp label4:::p::p}, space s:::p, par l {comp label2::l:p::p, comp RequestProductButton::l:p:46:p}, space :p:30:p, par l {comp ProductList:::p:46:p, comp label3:::p::p}, space ::8:x, par t {comp Cancel:::p::p, comp BudgetLabel:::p::p}, space :::p}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 2
@@ -44,6 +44,10 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
 				"icon": new com.jformdesigner.model.SwingIcon( 0, "/icons/shopping__business__coins__dollar_-512.png" )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "BudgetLabel"
+				"text": "text"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 105, 15 )

@@ -26,7 +26,7 @@ public class SellProductStoreExceptionGUI extends JFrame {
     }
 
     private void okButtonActionPerformed(ActionEvent e) {
-        StoreGUI store = new StoreGUI();
+        RequestProductGUI store = new RequestProductGUI();
         store.pack();
         store.setVisible(true);
         this.dispose();
@@ -34,7 +34,7 @@ public class SellProductStoreExceptionGUI extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
+        // Generated using JFormDesigner Evaluation license - Hayk
         dialogPane = new JPanel();
         contentPanel = new JPanel();
         label1 = new JLabel();
@@ -50,13 +50,13 @@ public class SellProductStoreExceptionGUI extends JFrame {
         {
             dialogPane.setBorder(new EmptyBorder(12, 12, 12, 12));
             dialogPane.setBackground(new Color(255, 255, 153));
-            dialogPane.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax
-            .swing.border.EmptyBorder(0,0,0,0), "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e",javax.swing
-            .border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.
-            Font("Dialo\u0067",java.awt.Font.BOLD,12),java.awt.Color.red
-            ),dialogPane. getBorder()));dialogPane. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override
-            public void propertyChange(java.beans.PropertyChangeEvent e){if("borde\u0072".equals(e.getPropertyName(
-            )))throw new RuntimeException();}});
+            dialogPane.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new
+            javax . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax
+            . swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java
+            . awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt
+            . Color .red ) ,dialogPane. getBorder () ) ); dialogPane. addPropertyChangeListener( new java. beans .
+            PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r" .
+            equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
             dialogPane.setLayout(new BorderLayout());
 
             //======== contentPanel ========
@@ -64,7 +64,7 @@ public class SellProductStoreExceptionGUI extends JFrame {
                 contentPanel.setBackground(new Color(255, 255, 153));
 
                 //---- label1 ----
-                label1.setText("No sell product ");
+                label1.setText("No such product in store");
                 label1.setFont(new Font("Berlin Sans FB Demi", Font.BOLD, 16));
                 label1.setForeground(new Color(210, 43, 31));
 
@@ -92,17 +92,14 @@ public class SellProductStoreExceptionGUI extends JFrame {
                                     .addComponent(label2)
                                     .addGap(80, 80, 80))
                                 .addGroup(GroupLayout.Alignment.TRAILING, contentPanelLayout.createSequentialGroup()
-                                    .addComponent(okButton, GroupLayout.PREFERRED_SIZE, 253, GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(contentPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                        .addComponent(label1, GroupLayout.PREFERRED_SIZE, 224, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(okButton, GroupLayout.PREFERRED_SIZE, 253, GroupLayout.PREFERRED_SIZE))
                                     .addGap(45, 45, 45))))
                         .addGroup(GroupLayout.Alignment.TRAILING, contentPanelLayout.createSequentialGroup()
-                            .addGap(0, 135, Short.MAX_VALUE)
-                            .addGroup(contentPanelLayout.createParallelGroup()
-                                .addGroup(GroupLayout.Alignment.TRAILING, contentPanelLayout.createSequentialGroup()
-                                    .addComponent(label3)
-                                    .addGap(161, 161, 161))
-                                .addGroup(GroupLayout.Alignment.TRAILING, contentPanelLayout.createSequentialGroup()
-                                    .addComponent(label1, GroupLayout.PREFERRED_SIZE, 224, GroupLayout.PREFERRED_SIZE)
-                                    .addGap(15, 15, 15))))
+                            .addGap(0, 163, Short.MAX_VALUE)
+                            .addComponent(label3)
+                            .addGap(161, 161, 161))
                 );
                 contentPanelLayout.setVerticalGroup(
                     contentPanelLayout.createParallelGroup()
@@ -126,7 +123,7 @@ public class SellProductStoreExceptionGUI extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
+    // Generated using JFormDesigner Evaluation license - Hayk
     private JPanel dialogPane;
     private JPanel contentPanel;
     private JLabel label1;

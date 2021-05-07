@@ -44,7 +44,7 @@ public class MainGUI extends JFrame {
     }
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
+        // Generated using JFormDesigner Evaluation license - Hayk
         this.storeButton = new JButton();
         this.stockButton = new JButton();
         this.label2 = new JLabel();
@@ -111,7 +111,7 @@ public class MainGUI extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Zhanna Sargsyan
+    // Generated using JFormDesigner Evaluation license - Hayk
     private JButton storeButton;
     private JButton stockButton;
     private JLabel label2;
